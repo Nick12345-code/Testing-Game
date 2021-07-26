@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public Score scoreScript;
     [SerializeField] private float speed;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float maxDistance;
@@ -11,6 +12,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         firePoint = GameObject.Find("FirePoint").GetComponent<Transform>();
+        scoreScript = Camera.main.GetComponent<Score>();
     }
 
     private void Update()
@@ -35,6 +37,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.GetComponent<Collider2D>().CompareTag("Asteroid"))
         {
+            scoreScript.UpdateScore(1);
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }

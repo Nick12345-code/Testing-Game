@@ -17,8 +17,8 @@ public class AsteroidSpawner : MonoBehaviour
     private void SpawnAsteroid()
     {
         GameObject a = Instantiate(asteroid) as GameObject;
-        a.transform.position = new Vector2(screenBounds.x * -1, Random.Range(-screenBounds.y, screenBounds.y));
-        a.transform.SetParent(GameObject.Find("Clones").transform);
+        a.transform.position = new Vector2(screenBounds.x * -1.5f, Random.Range(-screenBounds.y, screenBounds.y));
+        a.transform.SetParent(GameObject.Find("AsteroidSpawner").transform);
     }
 
     IEnumerator AsteroidWave()

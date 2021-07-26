@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         GameObject a = Instantiate(bullet, firePoint.position, firePoint.rotation) as GameObject;
-        a.transform.SetParent(GameObject.Find("Clones").transform);
+        a.transform.SetParent(GameObject.Find("AsteroidSpawner").transform);
     }
 
 }
