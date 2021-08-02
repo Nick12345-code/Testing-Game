@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
-{
+{  
     [SerializeField] private float respawnRate;
     [SerializeField] private GameObject asteroid;
     private Vector2 screenBounds;
@@ -14,11 +14,12 @@ public class AsteroidSpawner : MonoBehaviour
         StartCoroutine(AsteroidWave());
     }
 
-    private void SpawnAsteroid()
+    public GameObject SpawnAsteroid()
     {
         GameObject a = Instantiate(asteroid) as GameObject;
         a.transform.position = new Vector2(screenBounds.x * -1.5f, Random.Range(-screenBounds.y, screenBounds.y));
         a.transform.SetParent(GameObject.Find("AsteroidSpawner").transform);
+        return a;
     }
 
     IEnumerator AsteroidWave()
