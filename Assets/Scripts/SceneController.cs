@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public bool gameOver;
+
     public void ChangeScene(string scene)
     {
+        gameOver = false;
         SceneManager.LoadScene(scene);
     }
 }

@@ -47,10 +47,11 @@ public class PlayerController : MonoBehaviour
         transform.position += transform.up * moveSpeed * Time.deltaTime;
     }
 
-    private void Shoot()
+    public GameObject Shoot()
     {
         GameObject a = Instantiate(bullet, firePoint.position, firePoint.rotation) as GameObject;
         a.transform.SetParent(GameObject.Find("AsteroidSpawner").transform);
+        return a;
     }
 
 }
